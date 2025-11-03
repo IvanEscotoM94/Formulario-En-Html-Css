@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Registro de la persona Usuaria</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<h1>Registro de la persona Usuaria</h1>
+
+<form id="registro">
+  <div class="campo">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" required />
+  </div>
+
+  <div class="campo">
+    <label for="apellido">Apellido</label>
+    <input type="text" id="apellido" name="apellido" required />
+  </div>
+
+  <div class="campo">
+    <label for="correo">Correo Electrónico</label>
+    <input type="email" id="correo" name="correo" required />
+  </div>
+
+  <div class="campo">
+    <label for="contrasena">Contraseña</label>
+    <input type="password" id="contrasena" name="contrasena" required />
+  </div>
+
+  <div class="campo">
+    <label for="descripcion">Descripción</label>
+    <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+  </div>
+
+  <fieldset class="campo">
+    <legend>Intereses</legend>
+    <div class="checks">
+      <div>
+        <input type="checkbox" id="tec" name="intereses" value="Tecnología" />
+        <label for="tec">Tecnología</label>
+      </div>
+      <div>
+        <input type="checkbox" id="arte" name="intereses" value="Arte" />
+        <label for="arte">Arte</label>
+      </div>
+      <div>
+        <input type="checkbox" id="deporte" name="intereses" value="Deporte" />
+        <label for="deporte">Deporte</label>
+      </div>
+      <div>
+        <input type="checkbox" id="musica" name="intereses" value="Música" />
+        <label for="musica">Música</label>
+      </div>
+      <div>
+        <input type="checkbox" id="ciencia" name="intereses" value="Ciencia" />
+        <label for="ciencia">Ciencia</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <button type="submit">Registrarse</button>
+</form>
+
+<div class="salida">
+  <label for="resumen">Usuarios registrados</label>
+  <textarea id="resumen" rows="6" readonly></textarea>
+</div>
+
+<script>
+  const form = document.getElementById("registro");
+  const salida = document.getElementById("resumen");
+
+  function appendLinea(linea) {
+
+    salida.value += (salida.value ? "\n" : "") + linea;
+    salida.style.height = "auto";
+    salida.style.height = salida.scrollHeight + "px";
+    salida.scrollTop = salida.scrollHeight;
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const apellido = document.getElementById("apellido").value.trim();
+    const correo = document.getElementById("correo").value.trim();
+    const descripcion = document.getElementById("descripcion").value.trim();
+
+    const intereses = Array.from(
+      document.querySelectorAll('input[name="intereses"]:checked')
+    ).map((c) => c.value);
+
+    const icono = "👤";
+    const linea =
+      `${icono} ${nombre} ${apellido} | ${correo}` +
+      (intereses.length ? ` | Intereses: ${intereses.join(", ")}` : "") +
+      (descripcion ? ` | "${descripcion}"` : "");
+
+    appendLinea(linea);
+
+    form.reset();
+    document.getElementById("nombre").focus();
+  });
+</script>
+</body>
+</html>
