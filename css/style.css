@@ -1,0 +1,160 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap");
+
+.montserrat-normal {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.montserrat-bold {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.montserrat-italic {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+
+:root {
+  --c-naranja: #f6511d;
+  --c-amarillo: #ffb400;
+  --c-azul: #00a6ed;
+  --c-verde: #7fb800;
+  --c-azul-oscuro: #0d2c54;
+
+  --c-blanco: #ffffff;
+  --c-gris-borde: #d6d8db;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--c-azul-oscuro);
+  color: var(--c-azul-oscuro);
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  margin: 0;
+  padding: 8px 12px;
+  text-align: center;
+  border-radius: 12px;
+  background: var(--c-amarillo);
+  color: var(--c-azul-oscuro);
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 2px solid var(--c-azul);
+  border-radius: 10px;
+  background: var(--c-blanco);
+  color: var(--c-azul-oscuro);
+  outline: none;
+}
+
+
+input:focus,
+textarea:focus {
+  border-color: var(--c-verde);
+}
+
+
+button[type="submit"] {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--c-naranja);
+  background: var(--c-naranja);
+  color: var(--c-blanco);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+form,
+.salida {
+  width: min(640px, 92vw);
+  background: var(--c-blanco);
+  padding: 18px;
+  border-radius: 16px;
+  border: 2px solid var(--c-gris-borde);
+  margin: 0 auto;
+}
+
+.campo {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+fieldset.campo {
+  border: 2px solid var(--c-azul);
+  border-radius: 12px;
+  padding: 12px 12px 10px;
+  background: var(--c-blanco);
+}
+
+legend {
+  padding: 0 6px;
+  font-weight: 700;
+  color: var(--c-azul-oscuro);
+}
+
+.checks > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 10px 0 0;
+  padding: 4px 8px;
+  border: 2px dashed var(--c-gris-borde);
+  border-radius: 8px;
+  background: var(--c-blanco);
+}
+
+.salida {
+  display: grid;
+  gap: 8px;
+  background: var(--c-blanco);
+  border: 2px solid var(--c-verde);
+}
+
+
+#registro {
+  display: grid;
+  gap: 10px;
+  background: var(--c-blanco);
+  border: 2px solid var(--c-azul);
+}
+
+#resumen {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  border: 2px solid var(--c-amarillo);
+  background: var(--c-blanco);
+  color: var(--c-azul-oscuro);
+}
